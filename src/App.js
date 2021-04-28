@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+import Navbar from './Navbar';
+import Input from './Input'
+import Game from './Game'
+
+let v;
+
+function App(){
+    const [val, setVal] = useState(0);
+
+    function getVal(value) {
+        setVal(value);
+        v = value;
+    }
+
+    
+    if(v>3){
+        return <div>
+            <Navbar />
+            <Input getVal={getVal} />
+            <Game Val={v} />
+        </div>
+    } else {
+        return <div>
+            <Navbar />
+            <Input getVal={getVal} />
+        </div>
+    }
 }
+
+
+
 
 export default App;
