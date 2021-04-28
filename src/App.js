@@ -17,7 +17,7 @@ function App(){
     }
 
     
-    if(v>3){
+    if(v>=3){
         return <div>
             <Navbar />
             <Input getVal={getVal} />
